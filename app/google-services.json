@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "91203226738",
+    "project_id": "college-network-f83f1",
+    "storage_bucket": "college-network-f83f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91203226738:android:26b5f0b8db19a2a4a546eb",
+        "android_client_info": {
+          "package_name": "com.santhi.collegenetwork"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC6UF-K5ZHuNicsmvUaxBxDITytCCf2Z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
