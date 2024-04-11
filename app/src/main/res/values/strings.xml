@@ -89,4 +89,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="upload_image">uploadimg</string>
     <string name="title_activity_on_bording">OnBordingActivity</string>
+    <string name="section">section</string>
+    <string name="search">search</string>
 </resources>

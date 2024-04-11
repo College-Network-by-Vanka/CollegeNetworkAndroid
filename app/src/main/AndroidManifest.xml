@@ -17,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CollegeNetwork"
-        tools:targetApi="31">
+        tools:targetApi="33">
         <activity
             android:name=".ui.auth.register.UploadProfileActivity"
             android:exported="false" />
@@ -50,6 +50,7 @@
 
         <activity
             android:name=".ui.splashScreen.WelcomeScreenActivity"
+
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,6 +60,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
+            android:theme="@style/Theme.CollegeNetwork"
             android:exported="false">
 
         </activity>
