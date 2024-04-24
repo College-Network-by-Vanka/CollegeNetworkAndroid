@@ -3,15 +3,32 @@ package com.santhi.collegenetwork.businessLogic.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.santhi.collegenetwork.businessLogic.model.Clubkey
 import com.santhi.collegenetwork.businessLogic.model.CommunityModel
 import com.santhi.collegenetwork.databinding.MyCommunityCardBinding
 
 class MyCommunityAdapter(private val context: Context):RecyclerView.Adapter<MyCommunityAdapter.ViewHolder>() {
     private var list:List<CommunityModel> = emptyList()
-    fun addNew(newList:ArrayList<CommunityModel>){
+    private var clubKeyList:List<Clubkey> = emptyList()
+    private  var filteredList:MutableList<CommunityModel> = mutableListOf<CommunityModel>()
+    fun addNew(newList:List<CommunityModel>){
         list = newList
+
+    }
+    fun getMyList(newList: List<Clubkey>){
+
+        clubKeyList = newList
+
+
+        for (clubKey in clubKeyList) {
+            val filteredItems = list.filter { it.id == clubKey.clubkey }
+            filteredList.addAll(filteredItems)
+            Toast.makeText(context, "$filteredList", Toast.LENGTH_SHORT).show()
+        }
+
     }
     inner class ViewHolder(val  binding:MyCommunityCardBinding):RecyclerView.ViewHolder(binding.root)
 
@@ -24,9 +41,11 @@ class MyCommunityAdapter(private val context: Context):RecyclerView.Adapter<MyCo
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
         holder.binding.tvCommunityName.text = list[position].name
+        //Toast.makeText(context, "$filteredList+jj", Toast.LENGTH_SHORT).show()
         Glide.with(context).load(list[position].logo).into(holder.binding.ivCommunityIcon)
-        holder.binding.tvCommunityMembers.text = list[position].members+" "+"members"
+        holder.binding.tvCommunityMembers.text =list[position].members.toString()+" "+"members"
 
     }
 }

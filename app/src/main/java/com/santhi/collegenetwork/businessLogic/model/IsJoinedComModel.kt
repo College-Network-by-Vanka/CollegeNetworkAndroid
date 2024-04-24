@@ -1,9 +1,9 @@
 package com.santhi.collegenetwork.businessLogic.model
 
-data class CommunityModel(
+data class IsJoinedComModel(
     var name:String?=null,
     var logo:String?=null,
     var members:Int=0,
     var id:String?=null,
-    var description:String?=null
+    var isJoined:Boolean = false
 )

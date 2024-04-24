@@ -1,5 +1,6 @@
  package com.santhi.collegenetwork
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +9,8 @@ import com.santhi.collegenetwork.businessLogic.localStorage.LocalStorageClass
 import com.santhi.collegenetwork.databinding.ActivityMainBinding
 import com.santhi.collegenetwork.ui.community.CommunityFragment
 import com.santhi.collegenetwork.ui.home.fragment.HomeFragment
+import com.santhi.collegenetwork.ui.postUpload.UploadPostActivity
+import com.santhi.collegenetwork.ui.postUpload.UploadPostBottomSheetFragment
 
  class MainActivity : AppCompatActivity() {
     private lateinit var binding:ActivityMainBinding
@@ -35,6 +38,12 @@ import com.santhi.collegenetwork.ui.home.fragment.HomeFragment
                     )
                     true
                 }
+                R.id.add->{
+                    val bottomFragment = UploadPostBottomSheetFragment()
+                    bottomFragment.show(supportFragmentManager,bottomFragment.tag)
+                    true
+                }
+
                 else->true
 
             }

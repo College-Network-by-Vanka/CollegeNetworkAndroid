@@ -12,7 +12,7 @@ import com.santhi.collegenetwork.businessLogic.upload.UploadActivity
 
 class CreateUserClass(val context: Context) {
    private val auth = FirebaseAuth.getInstance()
-    private val genrateOtpClass = GeneratorOtpClass(context)
+
     fun createNewUser(email: String,password:String){
         Loading.showAlertDialogForLoading(context)
 
@@ -21,8 +21,7 @@ class CreateUserClass(val context: Context) {
             if(it.isSuccessful){
                 Loading.dismissDialogForLoading()
 
-                genrateOtpClass.sendOtp(email)
-                context.startActivity(Intent(context,MainActivity::class.java))
+                context.startActivity(Intent(context,UploadActivity::class.java))
             }
             else {
                 Loading.dismissDialogForLoading()
