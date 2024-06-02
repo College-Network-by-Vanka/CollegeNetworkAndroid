@@ -9,5 +9,7 @@ data class User(
     var sec:String?=null,
     var userId:String?=null,
     var notification:String?=null,
-    var profile:String?=null
+    var profile:String?=null,
+    var online:String?=null
+
 )

@@ -23,7 +23,7 @@ class PostViewModel: ViewModel() {
     private fun fetchDataFromDatabase() {
         isLoading.value = true
 
-        database.addValueEventListener(object : ValueEventListener {
+        database.orderByChild("time").limitToFirst(30).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val data = mutableListOf<PostModel>()
                 for (childSnapshot in snapshot.children) {

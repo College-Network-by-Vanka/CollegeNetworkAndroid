@@ -15,6 +15,7 @@ class FormActivity : AppCompatActivity() {
         binding = ActivityFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val localStorage = LocalStorageClass(this)
+
         binding.verifyBtn.setOnClickListener {
             // Retrieve selected items from spinners
             val selectYear = binding.batchSpinner.selectedItem.toString()

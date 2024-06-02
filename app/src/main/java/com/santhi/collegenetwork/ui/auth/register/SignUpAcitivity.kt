@@ -3,6 +3,7 @@ package com.santhi.collegenetwork.ui.auth.register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.santhi.collegenetwork.R
 import com.santhi.collegenetwork.businessLogic.localStorage.LocalStorageClass
 import com.santhi.collegenetwork.businessLogic.otp.GeneratorOtpClass
@@ -18,9 +19,14 @@ class SignUpAcitivity : AppCompatActivity() {
         val genratorOtpClass = GeneratorOtpClass(this)
         signUpBtn.setOnClickListener {
             val email = binding.signupEmail.text.toString()
-            val localStorage = LocalStorageClass(this)
-            localStorage.saveString("email",email)
-            genratorOtpClass.sendOtp(email)
+            if (!email.contains("anits.edu.in")){
+                Toast.makeText(this, "Only use anits email!!", Toast.LENGTH_SHORT).show()
+
+            }else {
+                val localStorage = LocalStorageClass(this)
+                localStorage.saveString("email", email)
+                genratorOtpClass.sendOtp(email)
+            }
 
         }
     }

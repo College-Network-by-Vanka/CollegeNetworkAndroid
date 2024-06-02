@@ -5,6 +5,7 @@
     <color name="poll_option_background">#F5F5F5</color>
     <color name="poll_option_border">#E0E0E0</color>
     <color name="gray_200">#EEEEEE</color>
+    <color name="grey">#808080</color>
     <!-- Teal color -->
     <color name="teal">#47C9B4</color>
 

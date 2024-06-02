@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -12,6 +13,7 @@
     </queries>
 
     <application
+        android:name=".MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -20,7 +22,49 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CollegeNetwork"
-        tools:targetApi="33">
+        tools:targetApi="34">
+        <activity
+            android:name=".ui.myFriends.MyFriendsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.search.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.editProfile.EditAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.chat.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.PermissionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MessageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.notificationSee.NotificarionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.notificationSee.SeeLikePostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.userProfile.UserProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.activity.ReplyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.auth.register.VerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.activity.SeeReplyActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.postUpload.SelectClubActivity"
             android:exported="false" />
@@ -62,6 +106,17 @@
             android:exported="false"
             android:label="@string/title_activity_on_bording"
             android:theme="@style/Theme.CollegeNetwork" />
+
+        <service
+            android:name=".businessLogic.notification.FirebaseService"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+
         <activity
             android:name=".ui.splashScreen.WelcomeScreenActivity"
             android:exported="true">

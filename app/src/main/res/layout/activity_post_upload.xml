@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".ui.postUpload.UploadPostActivity">
     <!-- upload_post_layout.xml -->
@@ -38,7 +39,7 @@
             android:src="@drawable/baseline_arrow_back_24"
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:contentDescription="Back"
-            android:onClick="onBackButtonClicked" />
+            />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -107,6 +108,15 @@
             android:text="post"
             android:textAllCaps="false"
             android:textColor="#ffffff" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/anonymouslyButtonTweet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/black"
+            android:text="👻"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
 
     </LinearLayout>
 

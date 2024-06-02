@@ -32,6 +32,9 @@ class RegisterAccountActivity : AppCompatActivity() {
                 startActivity(Intent(this, FormActivity::class.java))
             }
         }
+        binding.imageButton.setOnClickListener {
+            finish()
+        }
 
     }
     private fun validateInputs(name: String, gender: String, college: String): Boolean {

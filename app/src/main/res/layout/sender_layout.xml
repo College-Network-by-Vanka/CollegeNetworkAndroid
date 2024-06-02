@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray_200"
+    android:layout_margin="10dp"
+    android:padding="8dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/canva_loading" />
+
+    <TextView
+        android:id="@+id/sender_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/profile_image"
+        android:text="@string/loading"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/message_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sender_name"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/profile_image"
+        android:background="@drawable/message_bubble_dark"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="8dp">
+
+        <TextView
+            android:id="@+id/message_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loading"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/message_text"
+            android:layout_marginTop="4dp"
+            android:text="@string/loading"
+            android:textColor="#8A8A8F"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/unread_count"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignBaseline="@id/message_container"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@id/message_container"
+        android:background="@drawable/unread_count_bg"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/black" />
+
+</RelativeLayout>

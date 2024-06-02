@@ -53,9 +53,7 @@
     <string-array name="college_list">
         <item>Select your college</item>
         <item>ANITS</item>
-        <item>GITAM</item>
-        <item>NITW</item>
-        <item>LPU</item>
+
     </string-array>
     <string-array name="branch">
         <item>Select your branch</item>
@@ -91,4 +89,27 @@
     <string name="title_activity_on_bording">OnBordingActivity</string>
     <string name="section">section</string>
     <string name="search">search</string>
+    <string name="loading">loading</string>
+    <string name="back">back</string>
+    <string name="notifications">Notification</string>
+    <string name="get_started">Get Started</string>
+    <string name="please_grant_the_necessary_permissions">Grant notification permissions</string>
+    <string name="tap_allowed_when_prompted">Tap allowed when prompted</string>
+    <string name="permissionimg">permission img</string>
+    <string name="go_back_from_profile">go back from profile</string>
+    <string name="chat_screen">chat screen</string>
+    <string name="search_friend">search friend</string>
+    <string name="go_back_from_sign_in">go back from sign in</string>
+    <string name="user_profile">user profile</string>
+    <string name="profile">profile</string>
+    <string name="notifications_icon">notifications icon</string>
+    <string name="search_icon">search icon</string>
+    <string name="home_icon">home_icon</string>
+    <string name="community_icon">community_icon</string>
+    <string name="add_icon">add_icon</string>
+    <string name="icon_chat">icon_chat</string>
+    <string name="like_btn">like_btn</string>
+    <string name="comments">comments</string>
+    <string name="reply">reply</string>
+    <string name="send">send</string>
 </resources>

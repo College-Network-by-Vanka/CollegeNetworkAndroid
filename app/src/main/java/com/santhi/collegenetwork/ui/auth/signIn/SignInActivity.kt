@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.santhi.collegenetwork.R
 import com.santhi.collegenetwork.businessLogic.localStorage.LocalStorageClass
+import com.santhi.collegenetwork.businessLogic.tokenGenrator.TokenManager
 import com.santhi.collegenetwork.businessLogic.user.LoginUserClass
 import com.santhi.collegenetwork.databinding.ActivitySignInBinding
 
@@ -14,6 +15,8 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val loginUserClass = LoginUserClass(this)
+        val tokenManager = TokenManager(this)
+        tokenManager.saveTokenLocally()
         binding.verifyBtn.setOnClickListener {
             val  email = binding.emailEt.text.toString()
             val  password = binding.passwordEt.text.toString()

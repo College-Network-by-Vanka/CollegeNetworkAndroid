@@ -50,12 +50,12 @@
                     android:id="@+id/profile"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:contentDescription="@string/profile"
                     android:src="@drawable/baseline_account_circle_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </com.facebook.shimmer.ShimmerFrameLayout>
-
 
 
             <TextView
@@ -68,23 +68,8 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/shemmer"
-                app:layout_constraintEnd_toStartOf="@+id/search_btn"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/shemmer"
                 app:layout_constraintTop_toTopOf="@+id/shemmer" />
-
-            <ImageButton
-                android:id="@+id/search_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:contentDescription="@string/search"
-                app:layout_constraintBottom_toBottomOf="@+id/title_text"
-                app:layout_constraintEnd_toStartOf="@+id/cardView5"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/shemmer"
-                app:layout_constraintTop_toTopOf="@+id/title_text"
-                app:srcCompat="@drawable/baseline_search_24" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView5"
@@ -106,6 +91,7 @@
                         android:id="@+id/notification_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/notifications_icon"
                         android:layout_gravity="center"
                         android:src="@drawable/notification_with_counter" />
 
@@ -126,6 +112,19 @@
 
                 </FrameLayout>
             </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/search"
+                android:layout_width="38dp"
+                android:contentDescription="@string/search_icon"
+                android:layout_height="38dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cardView5"
+                app:layout_constraintHorizontal_bias="0.98"
+                app:layout_constraintStart_toEndOf="@+id/title_text"
+                app:layout_constraintTop_toTopOf="@+id/cardView5"
+                app:srcCompat="@drawable/baseline_search_24"
+                app:tint="@color/grey" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

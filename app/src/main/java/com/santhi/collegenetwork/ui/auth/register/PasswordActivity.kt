@@ -7,7 +7,7 @@ import com.santhi.collegenetwork.businessLogic.localStorage.LocalStorageClass
 import com.santhi.collegenetwork.businessLogic.user.CreateUserClass
 import com.santhi.collegenetwork.databinding.ActivityPasswordBinding
 
-class PasswordActivity : AppCompatActivity() {
+class  PasswordActivity : AppCompatActivity() {
     private lateinit var binding:ActivityPasswordBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

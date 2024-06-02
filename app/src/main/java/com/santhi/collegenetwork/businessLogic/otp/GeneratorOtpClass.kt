@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import com.santhi.collegenetwork.businessLogic.localStorage.LocalStorageClass
 import com.santhi.collegenetwork.ui.auth.register.OTPActivity
+import com.santhi.collegenetwork.ui.auth.register.PasswordActivity
 import kotlinx.coroutines.*
 import papaya.`in`.sendmail.SendMail
 
@@ -16,8 +17,8 @@ class GeneratorOtpClass(private val context: Context) {
             localStorage.saveString("otp", random.toString())
 
             // Send OTP via email
-            sendOtpEmail(email, random)
-            context.startActivity(Intent(context,OTPActivity::class.java))
+           // sendOtpEmail(email, random)
+            context.startActivity(Intent(context,PasswordActivity::class.java))
         }
     }
 

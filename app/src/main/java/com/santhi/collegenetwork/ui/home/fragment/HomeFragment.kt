@@ -21,13 +21,22 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         viewModel = ViewModelProvider(this)[PostViewModel::class.java]
         binding =  FragmentHomeBinding.inflate(layoutInflater,container,false)
+        binding.shimmer.startShimmer()
         // Inflate the layout for this fragment
         binding.postRv.layoutManager = LinearLayoutManager(requireContext())
         val adapter = HomeAdapter(requireContext())
         viewModel.dataList.observe(requireActivity()){newList->
-            adapter.updateList(newList)
+            adapter.updateList(newList.reversed())
+        }
+        viewModel.isLoading.observe(requireActivity()){isLoading->
+            if (!isLoading){
+                binding.shimmer.hideShimmer()
+                binding.postRv.visibility = View.VISIBLE
+                binding.shimmer.visibility = View.GONE
+            }
         }
         binding.postRv.adapter = adapter
 

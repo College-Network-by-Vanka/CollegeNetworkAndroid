@@ -39,28 +39,38 @@ class UploadPostActivity : AppCompatActivity() {
         binding.buttonAddImage.setOnClickListener {
             selectImageFromGallery()
         }
+        binding.anonymouslyButtonTweet.setOnClickListener {
+           goToSelectActivity(true)
+        }
         binding.buttonTweet.setOnClickListener {
-            val postText = binding.postText.text.toString()
 
-            val url = imgUrl.toString()
-            val intent = Intent(this,SelectClubActivity::class.java)
-            if (postText.isNotEmpty()&&url != "no"){
-               intent.putExtra("type","0")
-                intent.putExtra("postText",postText)
-                intent.putExtra("url",url)
-                startActivity(intent)
-            }else if (postText.isEmpty()&&url != "no"){
-                intent.putExtra("type","1")
-                intent.putExtra("url",url)
-                startActivity(intent)
-            }else if (postText.isNotEmpty()&&url == "no"){
-                intent.putExtra("type","2")
-                intent.putExtra("postText",postText)
-                startActivity(intent)
-            }else{
-                Toast.makeText(this, "Empty fileds not allowed!!", Toast.LENGTH_SHORT).show()
-            }
+          goToSelectActivity(false)
+        }
+        binding.buttonBack.setOnClickListener {
+            finish()
+        }
+    }
+    private fun goToSelectActivity(isAnonymously:Boolean){
+        val postText = binding.postText.text.toString()
 
+        val url = imgUrl.toString()
+        val intent = Intent(this,SelectClubActivity::class.java)
+        intent.putExtra("isAnonymously",isAnonymously)
+        if (postText.isNotEmpty()&&url != "no"){
+            intent.putExtra("type","0")
+            intent.putExtra("postText",postText)
+            intent.putExtra("url",url)
+            startActivity(intent)
+        }else if (postText.isEmpty()&&url != "no"){
+            intent.putExtra("type","1")
+            intent.putExtra("url",url)
+            startActivity(intent)
+        }else if (postText.isNotEmpty()&&url == "no"){
+            intent.putExtra("type","2")
+            intent.putExtra("postText",postText)
+            startActivity(intent)
+        }else{
+            Toast.makeText(this, "Empty fileds not allowed!!", Toast.LENGTH_SHORT).show()
         }
     }
     private fun selectImageFromGallery() {

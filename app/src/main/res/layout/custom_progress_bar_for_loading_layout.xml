@@ -22,7 +22,7 @@
         <pl.droidsonroids.gif.GifImageView
             android:layout_width="200dp"
             android:layout_height="match_parent"
-            android:src="@drawable/loading"
+            android:src="@drawable/loading_img"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

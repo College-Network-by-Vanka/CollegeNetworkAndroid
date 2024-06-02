@@ -2,6 +2,7 @@ package com.santhi.collegenetwork.ui.postUpload
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,8 +28,9 @@ class SelectClubActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[CommunityViewModel::class.java]
         var postText:String? = null
         var postImg:String?= null
+        val isAnonymously = intent.getBooleanExtra("isAnonymously",false)
         val intentType = intent.getStringExtra("type")
-        Toast.makeText(this, intentType, Toast.LENGTH_SHORT).show()
+       // Toast.makeText(this, intentType, Toast.LENGTH_SHORT).show()
 
         if (intentType=="0"){
             postText = intent.getStringExtra("postText")
@@ -40,7 +42,7 @@ class SelectClubActivity : AppCompatActivity() {
             postText = intent.getStringExtra("postText")
             postImg = "NoImg"
         }
-       val adapter = SelectCommunityAdapter(this,postText.toString(),postImg.toString())
+       val adapter = SelectCommunityAdapter(this,postText.toString(),postImg.toString(),isAnonymously)
         myCommunityViewModel = ViewModelProvider(this)[MyCommunityViewModel::class.java]
 //        val comAd = CommunityAdapter(requireContext())
          binding.selectRv.layoutManager = LinearLayoutManager(this)
@@ -48,6 +50,9 @@ class SelectClubActivity : AppCompatActivity() {
 //
 //        val myComAd = MyCommunityAdapter(requireContext())
         viewModel.dataList.observe(this) { communities1 ->
+            if (communities1.size>=1){
+                binding.selectClub.visibility = View.GONE
+            }
             filterList.clear()
             filterList.addAll(communities1)
 

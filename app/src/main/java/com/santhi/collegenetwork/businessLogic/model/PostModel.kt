@@ -10,5 +10,6 @@ data class PostModel (
     val authId:String?=null,
     val token:String?=null,
     val path:String?=null,
-    val clubkey:String?=null
+    val clubkey:String?=null,
+    var isAnomyous:Boolean = false
 )

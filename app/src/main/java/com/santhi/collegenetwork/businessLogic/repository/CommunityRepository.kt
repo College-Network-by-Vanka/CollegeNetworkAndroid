@@ -1,6 +1,7 @@
-package com.santhi.collegenetwork.businessLogic.Repository
+package com.santhi.collegenetwork.businessLogic.repository
 
 import android.content.Context
+import android.content.Intent
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -8,11 +9,10 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import com.santhi.collegenetwork.businessLogic.localStorage.LocalStorageClass
+import com.santhi.collegenetwork.MainActivity
 import com.santhi.collegenetwork.businessLogic.model.Clubkey
 import com.santhi.collegenetwork.businessLogic.model.PostModel
 import com.santhi.collegenetwork.businessLogic.model.UserKey
-import com.santhi.collegenetwork.businessLogic.tokenGenrator.TokenManager
 
 class CommunityRepository(private val context:Context) {
     private val database = Firebase.database("https://college-network-f83f1-default-rtdb.asia-southeast1.firebasedatabase.app/").reference.child("myclubs")
@@ -26,10 +26,10 @@ class CommunityRepository(private val context:Context) {
         if (uid != null) {
             database.child(uid).child(key).setValue(data).addOnCompleteListener {
                 if (it.isSuccessful){
-                    Toast.makeText(context, "success", Toast.LENGTH_SHORT).show()
+                    ///Toast.makeText(context, "Welcome", Toast.LENGTH_SHORT).show()
                     addMembersInClub(key)
                 }else{
-                    Toast.makeText(context, "no", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "some thing went wrong!!", Toast.LENGTH_SHORT).show()
 
                 }
             }
@@ -42,7 +42,7 @@ class CommunityRepository(private val context:Context) {
                 Firebase.database("https://college-network-f83f1-default-rtdb.asia-southeast1.firebasedatabase.app/").reference.child("clubs").child(key).child("members").addListenerForSingleValueEvent(object :ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val members = snapshot.getValue(Int::class.java)
-                        Toast.makeText(context, "${members}", Toast.LENGTH_SHORT).show()
+                    //    Toast.makeText(context, "${members}", Toast.LENGTH_SHORT).show()
                         val newVal = members
                         val count = newVal?.minus(1)
                         Firebase.database("https://college-network-f83f1-default-rtdb.asia-southeast1.firebasedatabase.app/").reference.child("clubs").child(key).child("members").setValue(count).addOnSuccessListener {
@@ -65,7 +65,7 @@ class CommunityRepository(private val context:Context) {
                 Firebase.database("https://college-network-f83f1-default-rtdb.asia-southeast1.firebasedatabase.app/").reference.child("clubs").child(clubName).child("members").addListenerForSingleValueEvent(object :ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
                         val members = snapshot.getValue(Int::class.java)
-                        Toast.makeText(context, "${members}", Toast.LENGTH_SHORT).show()
+                      //  Toast.makeText(context, "${members}", Toast.LENGTH_SHORT).show()
                         val newVal = members
                         val count = newVal?.plus(1)
                         Firebase.database("https://college-network-f83f1-default-rtdb.asia-southeast1.firebasedatabase.app/").reference.child("clubs").child(clubName).child("members").setValue(count)
@@ -95,12 +95,13 @@ class CommunityRepository(private val context:Context) {
         })
     }
     fun uploadPost(context: Context,post:PostModel,clubId: String){
-
         Firebase.database("https://college-network-f83f1-default-rtdb.asia-southeast1.firebasedatabase.app/").reference.child("post").child(post.id.toString()).setValue(post).addOnCompleteListener {
             if (it.isSuccessful){
                 Toast.makeText(context, "Sucessfull", Toast.LENGTH_SHORT).show()
+
+                context.startActivity(Intent(context,MainActivity::class.java))
             }else{
-                Toast.makeText(context, "noo", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "something went wrong", Toast.LENGTH_SHORT).show()
 
             }
         }

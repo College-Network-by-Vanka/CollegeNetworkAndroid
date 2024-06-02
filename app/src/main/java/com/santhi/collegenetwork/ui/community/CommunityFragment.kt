@@ -33,7 +33,7 @@ class CommunityFragment : Fragment() {
         myCommunityViewModel =ViewModelProvider(requireActivity())[MyCommunityViewModel::class.java]
         binding = FragmentCommunityBinding.inflate(layoutInflater,container,false)
         // Inflate the layout for this fragment
-        val dummmy = Dummy()
+        binding.shimmer.startShimmer()
        val comAd = CommunityAdapter(requireContext())
 
 
@@ -45,7 +45,7 @@ class CommunityFragment : Fragment() {
             filterList.clear()
             filterList.addAll(communities1)
 
-            comAd.addNewList(communities1)
+
 
 
             // Observe myCommunityViewModel.dataList after the initial data is loaded
@@ -60,6 +60,7 @@ class CommunityFragment : Fragment() {
 
 
                 myComAd.addNew(filteredItems)
+                comAd.addNewList(communities1)
             }
         }
         binding.mycomRv.layoutManager = LinearLayoutManager(requireContext())
@@ -67,7 +68,18 @@ class CommunityFragment : Fragment() {
 
         binding.rvCommunities.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         binding.rvCommunities.adapter =comAd
+        viewModel.isLoading.observe(requireActivity())
+        {isLoading->
+            if (!isLoading){
+                binding.shimmer.hideShimmer()
+                binding.shimmer.visibility = View.GONE
+                binding.rvCommunities.visibility = View.VISIBLE
+                binding.mycomRv.visibility = View.VISIBLE
+                binding.textView7.visibility = View.VISIBLE
+                binding.textView8.visibility = View.VISIBLE
+            }
 
+        }
 
         return binding.root
     }
