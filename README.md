@@ -2,7 +2,8 @@
 
 Welcome to the future of social networking, tailored specifically for college students College Network is coming soon, offering a platform where you can share your experiences, seek academic advice, and connect with peers across campuses. Dive into our vibrant communities and enjoy the freedom of anonymous posting.
  **YouTube Link**:
-   - The thumbnail and link in the `[![College Network](https://img.youtube.com/vi/uo5gx8-WdO0/0.jpg)](https://www.youtube.com/watch?v=uo5gx8-WdO0)` part are based on your provided video. Replace this with your actual video link if it's different.
+[![YouTube Video](https://img.youtube.com/vi/uo5gx8-WdO0/0.jpg)](https://www.youtube.com/watch?v=uo5gx8-WdO0)
+.
 ## Key Features
 
 - **Communities**: Join or create communities based on your interests, courses, or clubs. Engage in discussions, share resources, and collaborate on projects with fellow students.
